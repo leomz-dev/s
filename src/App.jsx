@@ -5,10 +5,26 @@ import './App.css';
 
 // Predefined messages
 const MESSAGES = [
-  "¡Hola Mundo!", "Sigue así", "Increíble", "Física en React",
-  "¡Genial!", "Otro más", "Cayendo...", "Gravedad activada",
-  "Javascript", "Diseño UI", "¡Boom!", "Más mensajes",
-  "No pares", "Creatividad", "Innovación", "Diversión"
+  "Tu sonrisa", "Tu ojitos lindos", "Tu risa contagiosa", "Tu inteligencia", "Tu bondad",
+  "Tu apoyo incondicional", "Cómo me cuidas", "Tu determinación",
+  "Tu creatividad", "Tu forma de ver la vida", "Tu valentía", "Tu sinceridad", "Tu ternura",
+  "Tu pasión por lo que haces", "Tu estilo único", "Tu voz", "Tus abrazos", "Tus besos",
+  "Cómo me escuchas", "Tu empatía", "Tu generosidad", "Tu fuerza", "Tu humildad",
+  "Tu optimismo", "Tu elegancia", "Tu aroma", "Tu suavidad", "Tu compañía",
+  "Nuestras conversaciones", "Tu curiosidad", "Tu madurez", "Tu alegría",
+  "Cómo iluminas cada lugar", "Tu confianza en mí", "Tu lealtad", "Tu lado divertido", "Tu lado serio",
+  "Tu ambición", "Tu resiliencia", "Tu espíritu aventurero", "Tu calma", "Tu energía",
+  "Cómo me haces sentir especial", "Tu intuición", "Tu sabiduría", "Tu honestidad", "Tu carisma",
+  "Tu dedicación", "Tu disciplina", "Tu amor por los niños", "Tu educación",
+  "Tu puntualidad", "Tu organización", "Tu espontaneidad", "Tu claridad",
+  "Tu forma de vestir", "Tu cabello", "Tus manos", "Tu piel", "Tu perfil",
+  "Tu forma de caminar", "Tu seguridad", "Tu vulnerabilidad", "Tu autenticidad", "Tu brillo propio",
+  "Tu capacidad de perdonar", "Tu comprensión", "Tu paz", "Tu dulzura",
+  "Tu firmeza", "Tu delicadeza", "Tu ingenio", "Tu memoria", "Tu atención al detalle",
+  "Tu forma de soñar", "Tu fe en nosotros", "Tu compromiso", "Tu integridad",
+  "Tu independencia", "Tu calidez", "Tu luz", "Tu magia", "Tu esencia",
+  "Tu complicidad", "Tu amistad", "Tu amor", "Tu presencia", "Tu futuro conmigo",
+  "Tu pasado que te hizo quien eres", "Tu presente a mi lado", "Todo lo que aprendo de ti", "Simplemente tú", "Que seas mi novia"
 ];
 
 const IMAGES = [
@@ -163,6 +179,9 @@ export default function App() {
         }}
       >
         <div style={{ pointerEvents: 'auto' }}>
+          <p style={{ fontWeight: 'bold', color: '#aaa' }}>
+            Hola sami, te amo, amo mil cosas de ti, queria expresartelo un poco distinto.
+          </p>
           <img
             src="/boton.png"
             alt="Lanzar"
@@ -177,8 +196,8 @@ export default function App() {
             onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1)')}
             onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           />
-          <p style={{ marginTop: '1rem', color: '#aaa' }}>
-            Lluvia de sorpresas
+          <p style={{ fontWeight: 'bold', marginTop: '1rem', color: '#aaa' }}>
+            Toca el osito para saberlo...
           </p>
 
           <button
@@ -191,7 +210,8 @@ export default function App() {
             style={{
               marginTop: '15px',
               padding: '8px 16px',
-              background: 'rgba(255, 255, 255, 0.1)',
+              fontWeight: 'bold',
+              background: 'rgba(255, 255, 255, 0.42)',
               border: '1px solid rgba(255, 255, 255, 0.2)',
               borderRadius: '20px',
               color: 'white',
