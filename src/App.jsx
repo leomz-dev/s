@@ -177,7 +177,7 @@ export default function App() {
             onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1)')}
             onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           />
-          <p style={{ marginTop: '1rem', color: '#aaa', fontFamily: 'sans-serif' }}>
+          <p style={{ marginTop: '1rem', color: '#aaa' }}>
             Lluvia de sorpresas
           </p>
 
@@ -290,7 +290,7 @@ function PhysicsItem({ position, angle, render }) {
         color: '#FFFFFF',
         fontWeight: '800',
         fontSize: '1.2rem',
-        fontFamily: 'system-ui, -apple-system, sans-serif',
+        fontFamily: '"Barriecito", system-ui, cursive',
         whiteSpace: 'nowrap',
         textShadow: '0 1px 2px rgba(0,0,0,0.5)'
       }}
