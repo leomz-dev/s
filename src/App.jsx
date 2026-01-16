@@ -125,7 +125,7 @@ export default function App() {
       const size = 80 + Math.random() * 80;
 
       body = Matter.Bodies.rectangle(x, y, size, size, {
-        restitution: 0.3,
+        restitution: 0.65,
         friction: 0.6,
         angle: angle,
         chamfer: { radius: 20 },
