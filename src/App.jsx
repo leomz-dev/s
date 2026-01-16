@@ -200,45 +200,50 @@ export default function App() {
             Toca el osito para saberlo...
           </p>
 
-          <button
-            onClick={() => {
-              if (engineRef.current) {
-                Matter.Composite.clear(engineRef.current.world, true);
-                setBodies([]);
-              }
-            }}
-            style={{
-              marginTop: '15px',
-              padding: '8px 16px',
-              fontWeight: 'bold',
-              background: 'rgba(255, 255, 255, 0.42)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              borderRadius: '20px',
-              color: 'white',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              margin: '15px auto 0',
-              fontSize: '0.9rem',
-              transition: 'all 0.2s',
-              zIndex: 200,
-              pointerEvents: 'auto'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
-              e.currentTarget.style.transform = 'scale(1.05)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-              e.currentTarget.style.transform = 'scale(1)';
-            }}
-          >
-            <RotateCcw size={16} />
-            Reiniciar
-          </button>
+
         </div>
       </div>
+
+      <button
+        onClick={() => {
+          if (engineRef.current) {
+            Matter.Composite.clear(engineRef.current.world, true);
+            setBodies([]);
+          }
+        }}
+        style={{
+          position: 'absolute',
+          bottom: '30px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          padding: '8px 16px',
+          fontWeight: 'bold',
+          background: 'rgba(221, 204, 255, 0.85)',
+          border: '1px solid rgba(255, 255, 255, 0.5)',
+          borderRadius: '20px',
+          color: '#4a148c',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          fontSize: '0.9rem',
+          transition: 'all 0.2s',
+          zIndex: 200,
+          pointerEvents: 'auto',
+          boxShadow: '0 2px 10px rgba(100, 80, 150, 0.2)'
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.background = 'rgba(221, 204, 255, 1)';
+          e.currentTarget.style.transform = 'translate(-50%) scale(1.05)';
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.background = 'rgba(221, 204, 255, 0.85)';
+          e.currentTarget.style.transform = 'translate(-50%) scale(1)';
+        }}
+      >
+        <RotateCcw size={16} />
+        Reiniciar
+      </button>
 
       {/* Physics Bodies Render Layer */}
       {bodies.map(body => (
