@@ -48,6 +48,7 @@ const BOX_CONFIG = [
 
 export default function App() {
   const engineRef = useRef(null);
+  const isResettingRef = useRef(false);
   const [bodies, setBodies] = useState([]);
 
   // Initialize Matter.js (Run once)
@@ -96,6 +97,31 @@ export default function App() {
         render: body.render // Contains all visual info (text, image url, type, etc)
       })));
 
+      // Check for strictly "full" screen condition to trigger floor drop
+      // 50 items for mobile, 100 for desktop
+      const threshold = window.innerWidth < 768 ? 30 : 100;
+
+      if (dynamicBodies.length >= threshold && !isResettingRef.current) {
+        isResettingRef.current = true;
+
+        // Remove floor to let everything fall
+        Matter.World.remove(engine.world, floor);
+
+        // Reset after they fall
+        setTimeout(() => {
+          // Clear dynamic bodies but keep walls (statics)
+          // Note: floor is currently removed, so clear(..., true) won't touch it anyway.
+          // We need to carefully clear. 
+          Matter.Composite.clear(engine.world, true);
+
+          // Re-add floor
+          Matter.World.add(engine.world, floor);
+
+          setBodies([]);
+          isResettingRef.current = false;
+        }, 4000);
+      }
+
       animationFrameId = requestAnimationFrame(updateLoop);
     };
     updateLoop();
@@ -109,7 +135,7 @@ export default function App() {
   }, []);
 
   const addItem = () => {
-    if (!engineRef.current) return;
+    if (!engineRef.current || isResettingRef.current) return;
 
     const isImage = Math.random() > 0.4; // threshold from user
     let body;
@@ -211,35 +237,7 @@ export default function App() {
             setBodies([]);
           }
         }}
-        style={{
-          position: 'absolute',
-          bottom: '30px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          padding: '8px 16px',
-          fontWeight: 'bold',
-          background: 'rgba(221, 204, 255, 0.85)',
-          border: '1px solid rgba(255, 255, 255, 0.5)',
-          borderRadius: '20px',
-          color: '#4a148c',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          fontSize: '0.9rem',
-          transition: 'all 0.2s',
-          zIndex: 200,
-          pointerEvents: 'auto',
-          boxShadow: '0 2px 10px rgba(100, 80, 150, 0.2)'
-        }}
-        onMouseOver={(e) => {
-          e.currentTarget.style.background = 'rgba(221, 204, 255, 1)';
-          e.currentTarget.style.transform = 'translate(-50%) scale(1.05)';
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.background = 'rgba(221, 204, 255, 0.85)';
-          e.currentTarget.style.transform = 'translate(-50%) scale(1)';
-        }}
+        className="restart-button"
       >
         <RotateCcw size={16} />
         Reiniciar
