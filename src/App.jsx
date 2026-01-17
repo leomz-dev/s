@@ -99,7 +99,7 @@ export default function App() {
 
       // Check for strictly "full" screen condition to trigger floor drop
       // 50 items for mobile, 100 for desktop
-      const threshold = window.innerWidth < 768 ? 30 : 100;
+      const threshold = window.innerWidth < 768 ? 30 : 50;
 
       if (dynamicBodies.length >= threshold && !isResettingRef.current) {
         isResettingRef.current = true;
